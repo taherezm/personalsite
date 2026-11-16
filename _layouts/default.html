@@ -25,7 +25,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="site-id">
-    <a class="home-mark" href="{{ '/' | relative_url }}" aria-label="Home"{% if page.url == "/" %} aria-current="page"{% endif %}><span></span></a>
+    <a class="home-mark" href="{{ '/' | relative_url }}" aria-label="Home"{% if page.url == "/" %} aria-current="page"{% endif %}><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 7 7 1.5 12.5 7v5.5h-11z"/></svg></a>
     {%- if page.url != "/" and section %}
     {% if page.section_url %}<a class="site-section" href="{{ page.section_url | relative_url }}">{{ section }}</a>{% else %}<span class="site-section">{{ section }}</span>{% endif %}
     {%- endif %}

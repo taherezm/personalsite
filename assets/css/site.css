@@ -94,10 +94,10 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .site-id { display: flex; align-items: stretch; min-width: 0; }
 .site-id > * { display: flex; align-items: center; white-space: nowrap; }
-/* Home mark: a square, outlined on inner pages and solid on the first page. */
+/* Home mark: a house, outlined on inner pages and solid on the first page. */
 .home-mark { margin-left: -12px; padding: 0 12px; }
-.home-mark span { width: 11px; height: 11px; border: 1px solid #000; }
-.home-mark:hover span, .home-mark[aria-current] span { background: #000; }
+.home-mark svg { width: 14px; height: 14px; fill: none; stroke: #000; stroke-width: 1; }
+.home-mark:hover svg, .home-mark[aria-current] svg { fill: #000; }
 .home-mark:focus-visible { outline-offset: -8px; }
 .site-section { text-decoration: none; }
 a.site-section:hover { text-decoration: underline; text-decoration-thickness: 1px; }
