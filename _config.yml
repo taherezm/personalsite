@@ -53,15 +53,21 @@ writing_kinds:
     label: Notes
 
 # Groups on the Etc. page. An entry's `kind` must match a key.
+# `covers` makes the group a grid of cover images in that shape
+# (portrait, square or landscape); without it the group is a text list.
 etc_kinds:
   - key: music
     label: Music
+    covers: square
   - key: film
     label: Films
+    covers: portrait
   - key: photograph
     label: Photographs
+    covers: landscape
   - key: media
     label: Media
+    covers: landscape
   - key: other
     label: Other
 
@@ -87,7 +93,7 @@ defaults:
   - scope: { path: "", type: projects }
     values: { layout: entry, section: Projects, section_url: /projects/ }
   - scope: { path: "", type: books }
-    values: { layout: entry, section: Books, section_url: /books/ }
+    values: { layout: entry, section: Books, section_url: /books/, covers: portrait }
   - scope: { path: "", type: etc }
     values: { layout: entry, section: Etc., section_url: /etc/, kind: other }
 

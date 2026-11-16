@@ -1,0 +1,26 @@
+{%- comment -%}
+One item in a grid of covers. The frame ("shell") is always drawn, so an
+entry without a `cover` image shows as an empty outline until one is added.
+Links follow the same rule as list rows: own page if the file has text,
+otherwise the `link` address, otherwise no link.
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign body = item.content | strip -%}
+{%- assign by = item.author | default: item.by -%}
+{%- assign href = nil -%}
+{%- if body != "" -%}{%- assign href = item.url | relative_url -%}
+{%- elsif item.link -%}{%- assign href = item.link -%}{%- endif -%}
+<li class="cover">
+  {% if href %}<a href="{{ href }}"{% if body == "" %} rel="noopener"{% endif %}>{% endif %}
+    <span class="shell shell-{{ include.shape }}">
+      {%- if item.cover %}<img src="{{ item.cover | relative_url }}" alt="" loading="lazy">{% endif -%}
+    </span>
+    <span class="cover-title">{{ item.title }}</span>
+  {% if href %}</a>{% endif %}
+  {%- if by %}
+  <span class="cover-meta">{{ by }}</span>
+  {%- endif %}
+  {%- if item.status or include.format %}
+  <span class="cover-meta">{% if item.status %}{{ item.status }} {% endif %}{% if include.format %}<time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: include.format }}</time>{% endif %}</span>
+  {%- endif %}
+</li>

@@ -5,13 +5,24 @@ layout: default
 {%- unless page.collection == "writing" %}{% assign format = "%Y" %}{% endunless -%}
 <article class="entry">
   <h1>{{ page.title }}</h1>
-  <ul class="entry-meta">
-    {%- assign by = page.author | default: page.by %}
-    {%- if by %}<li>{{ by }}</li>{% endif %}
-    {%- if page.status %}<li>{{ page.status }}</li>{% endif %}
-    {%- if page.date and page.collection != "etc" %}<li><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: format }}</time></li>{% endif %}
-    {%- if page.link %}<li><a href="{{ page.link }}" rel="noopener">{{ page.link_label | default: "Link" }}</a></li>{% endif %}
-  </ul>
+  {%- assign shape = page.covers %}
+  {%- if page.collection == "etc" %}
+    {%- for group in site.etc_kinds %}{% if group.key == page.kind %}{% assign shape = group.covers %}{% endif %}{% endfor %}
+  {%- endif %}
+  <div class="entry-side">
+    {%- if shape %}
+    <div class="shell shell-{{ shape }}">
+      {%- if page.cover %}<img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title | escape }}">{% endif -%}
+    </div>
+    {%- endif %}
+    <ul class="entry-meta">
+      {%- assign by = page.author | default: page.by %}
+      {%- if by %}<li>{{ by }}</li>{% endif %}
+      {%- if page.status %}<li>{{ page.status }}</li>{% endif %}
+      {%- if page.date and page.collection != "etc" %}<li><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: format }}</time></li>{% endif %}
+      {%- if page.link %}<li><a href="{{ page.link }}" rel="noopener">{{ page.link_label | default: "Link" }}</a></li>{% endif %}
+    </ul>
+  </div>
   <div class="entry-body prose">
 {{ content }}
     {%- if page.images %}
