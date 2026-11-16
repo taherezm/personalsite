@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{%- comment -%}
+Listing page for a collection. Front matter:
+  collection: writing | projects | books | etc
+  groups:     name of a list in _config.yml (optional)
+  date_format: how dates are shown (default: year only)
+  show_dates: false to leave dates out of the list
+{%- endcomment -%}
+{%- assign items = site[page.collection] | sort: "date" | reverse -%}
+{%- assign format = page.date_format | default: "%Y" -%}
+{%- if page.show_dates == false %}{% assign format = nil %}{% endif -%}
+{%- assign intro = content | strip -%}
+<div class="index">
+  <h1{% if page.groups or intro != "" %} class="wide"{% endif %}>{{ page.title }}</h1>
+  {%- if intro != "" %}
+  <div class="index-intro prose">{{ content }}</div>
+  {%- endif %}
+  {%- if page.groups %}
+    {%- for group in site[page.groups] %}
+      {%- assign members = items | where: "kind", group.key %}
+      {%- if members.size > 0 %}
+  <h2>{{ group.label }}</h2>
+  <ul class="rows">
+    {%- for item in members %}
+    {% include row.html item=item format=format %}
+    {%- endfor %}
+  </ul>
+      {%- endif %}
+    {%- endfor %}
+  {%- elsif items.size > 0 %}
+  <ul class="rows">
+    {%- for item in items %}
+    {% include row.html item=item format=format %}
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  {%- if items.size == 0 %}
+  <p class="rows">Nothing here yet.</p>
+  {%- endif %}
+</div>

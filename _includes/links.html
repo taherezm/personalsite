@@ -1,0 +1,6 @@
+<ul class="links">
+  {%- for link in site.links %}
+  <li>{% if link.url and link.url != "" %}<a href="{{ link.url }}" rel="me noopener">{{ link.label }}</a>{% else %}{{ link.label }}{% endif %}</li>
+  {%- endfor %}
+  <li>{% if site.email and site.email != "" %}<a href="mailto:{{ site.email }}">Email</a>{% else %}Email{% endif %}</li>
+</ul>

@@ -1,0 +1,23 @@
+{%- comment -%}
+One line in a listing. An entry with body text links to its own page;
+an entry with no body but a `link` goes straight to that address;
+an entry with neither is plain text.
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign body = item.content | strip -%}
+{%- assign by = item.author | default: item.by -%}
+<li class="row{% unless by %} row-plain{% endunless %}">
+  <span class="row-title">
+    {%- if body != "" -%}
+    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    {%- elsif item.link -%}
+    <a href="{{ item.link }}" rel="noopener">{{ item.title }}</a>
+    {%- else -%}
+    {{ item.title }}
+    {%- endif -%}
+  </span>
+  {%- if by %}
+  <span class="row-by">{{ by }}</span>
+  {%- endif %}
+  <span class="row-meta">{% if item.status %}{{ item.status }} {% endif %}{% if include.format %}<time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: include.format }}</time>{% endif %}</span>
+</li>

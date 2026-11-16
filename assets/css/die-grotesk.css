@@ -1,0 +1,28 @@
+/*
+  Die Grotesk (Klim Type Foundry) — licensed files required.
+  Loaded only when `die_grotesk: true` is set in _config.yml.
+
+  Put the .woff2 files from your Klim web-font licence in assets/fonts/
+  and make the file names below match them. The B cut is suggested for
+  text at these sizes; add or remove weights to suit what you licensed.
+*/
+@font-face {
+  font-family: "Die Grotesk";
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/DieGrotesk-B-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Die Grotesk";
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url("../fonts/DieGrotesk-B-RegularItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Die Grotesk";
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url("../fonts/DieGrotesk-B-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Die Grotesk";
+  font-style: italic; font-weight: 600; font-display: swap;
+  src: url("../fonts/DieGrotesk-B-MediumItalic.woff2") format("woff2");
+}

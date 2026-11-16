@@ -1,0 +1,98 @@
+# ─────────────────────────────────────────────────────────────
+# Site settings. Edit this file to change your name, links,
+# and section groupings. Changes here apply to every page.
+# ─────────────────────────────────────────────────────────────
+
+title: Taher Ezmerli
+description: ""            # One factual sentence, used by search engines and link previews.
+
+# Address. With the default GitHub Pages address
+# (https://taherezm.github.io/personalsite) leave these as they are.
+# With a custom domain, set url to it and baseurl to "".
+url: "https://taherezm.github.io"
+baseurl: "/personalsite"
+
+# Profile links. Leave a value empty and the label appears as plain
+# text; fill it in and it becomes a link.
+email: ""                  # e.g. name@example.com
+links:
+  - label: GitHub
+    url: ""
+  - label: LinkedIn
+    url: ""
+  - label: LessWrong
+    url: ""
+
+# Typeface. Set to true once licensed Die Grotesk web fonts are in
+# assets/fonts/ (see README). Until then the site uses the fallback,
+# Schibsted Grotesk.
+die_grotesk: false
+
+# Menu entries, in order.
+nav:
+  - label: About
+    url: /
+  - label: Writing
+    url: /writing/
+  - label: Projects
+    url: /projects/
+  - label: Books
+    url: /books/
+  - label: Etc.
+    url: /etc/
+
+# Groups on the Writing page. An entry's `kind` must match a key.
+writing_kinds:
+  - key: research
+    label: Research
+  - key: in-progress
+    label: Works in progress
+  - key: essay
+    label: Essays
+  - key: note
+    label: Notes
+
+# Groups on the Etc. page. An entry's `kind` must match a key.
+etc_kinds:
+  - key: music
+    label: Music
+  - key: film
+    label: Films
+  - key: photograph
+    label: Photographs
+  - key: media
+    label: Media
+  - key: other
+    label: Other
+
+# ─── Below here rarely needs editing ─────────────────────────
+
+collections:
+  writing:
+    output: true
+    permalink: /writing/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+  books:
+    output: true
+    permalink: /books/:name/
+  etc:
+    output: true
+    permalink: /etc/:name/
+
+defaults:
+  - scope: { path: "", type: writing }
+    values: { layout: entry, section: Writing, section_url: /writing/, kind: note }
+  - scope: { path: "", type: projects }
+    values: { layout: entry, section: Projects, section_url: /projects/ }
+  - scope: { path: "", type: books }
+    values: { layout: entry, section: Books, section_url: /books/ }
+  - scope: { path: "", type: etc }
+    values: { layout: entry, section: Etc., section_url: /etc/, kind: other }
+
+theme: null              # No theme: all layouts and styles are in this repository.
+markdown: kramdown
+kramdown:
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]
