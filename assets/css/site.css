@@ -64,6 +64,7 @@ html {
 }
 body {
   margin: 0;
+  background: #fff;
   color: #000;
   font: 400 15px/1.45 var(--font);
   font-kerning: normal;
