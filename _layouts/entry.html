@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{%- assign format = "%-d %B %Y" -%}
+{%- unless page.collection == "writing" %}{% assign format = "%Y" %}{% endunless -%}
+<article class="entry">
+  <h1>{{ page.title }}</h1>
+  <ul class="entry-meta">
+    {%- assign by = page.author | default: page.by %}
+    {%- if by %}<li>{{ by }}</li>{% endif %}
+    {%- if page.status %}<li>{{ page.status }}</li>{% endif %}
+    {%- if page.date and page.collection != "etc" %}<li><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: format }}</time></li>{% endif %}
+    {%- if page.link %}<li><a href="{{ page.link }}" rel="noopener">{{ page.link_label | default: "Link" }}</a></li>{% endif %}
+  </ul>
+  <div class="entry-body prose">
+{{ content }}
+    {%- if page.images %}
+    <div class="gallery">
+      {%- for image in page.images %}
+      {% include figure.html src=image.src alt=image.alt caption=image.caption %}
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</article>

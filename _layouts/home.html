@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="home">
+  <h1 class="name">{{ site.title }}</h1>
+  <div class="bio prose">
+{{ content }}
+  </div>
+  <figure class="portrait">
+    {%- if page.photo and page.photo != "" %}
+    <img src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt | default: site.title | escape }}">
+    {%- else %}
+    <div class="portrait-empty">Photograph</div>
+    {%- endif %}
+    {%- if page.photo_caption and page.photo_caption != "" %}
+    <figcaption>{{ page.photo_caption }}</figcaption>
+    {%- endif %}
+  </figure>
+  <div class="home-index">
+    <ul class="sections">
+      {%- for item in site.nav %}{% unless item.url == "/" %}
+      <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+      {%- endunless %}{% endfor %}
+    </ul>
+    {% include links.html %}
+  </div>
+</div>
