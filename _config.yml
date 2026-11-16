@@ -75,6 +75,7 @@ etc_kinds:
     covers: landscape
   - key: reference
     label: References
+    caption: stuff that helped me out   # Small line under the group's name. Any group can have one.
     sort: topic          # Listed by topic (alphabetically), not by date.
   - key: other
     label: Other

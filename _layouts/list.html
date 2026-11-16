@@ -26,7 +26,7 @@ Listing page for a collection. Front matter:
       {%- assign members = items | where: "kind", group.key %}
       {%- if group.sort %}{% assign members = members | sort: group.sort %}{% endif %}
       {%- if members.size > 0 %}
-  <h2>{{ group.label }}</h2>
+  <h2>{{ group.label }}{% if group.caption %}<span class="group-caption">{{ group.caption }}</span>{% endif %}</h2>
         {%- if group.covers %}
   <ul class="covers covers-{{ group.covers }}">
     {%- for item in members %}
