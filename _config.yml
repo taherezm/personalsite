@@ -52,8 +52,6 @@ writing_kinds:
     label: Research
   - key: in-progress
     label: Works in progress
-  - key: essay
-    label: Essays
   - key: note
     label: Notes
 

@@ -1,6 +1,6 @@
 ---
-title: Sample essay
-kind: essay            # research | in-progress | essay | note
+title: Sample research
+kind: research         # research | in-progress | note
 date: 2026-11-16
 # status: Draft        # Optional. Shown beside the date.
 ---
