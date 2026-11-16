@@ -64,9 +64,6 @@ html {
 }
 body {
   margin: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
-  background: #fff;
   color: #000;
   font: 400 15px/1.45 var(--font);
   font-kerning: normal;
@@ -74,6 +71,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-wrap: break-word;
 }
+/* The white sheet. It sits on .page rather than body so that the only colour
+   behind the page, and so the colour shown when it is pulled past its edge,
+   is the blue on html. */
+.page { min-height: 100vh; min-height: 100dvh; background: #fff; }
 ::selection { background: #000; color: #fff; }
 
 h1, h2, h3, h4, p, ul, ol, dl, figure, blockquote, pre { margin: 0; }
