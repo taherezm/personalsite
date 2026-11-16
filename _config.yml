@@ -17,11 +17,11 @@ baseurl: "/personalsite"
 email: ""                  # e.g. name@example.com
 links:
   - label: GitHub
-    url: ""
+    url: "https://github.com/taherezm"
   - label: LinkedIn
-    url: ""
+    url: "https://www.linkedin.com/in/taher-ezmerli/"
   - label: LessWrong
-    url: ""
+    url: "https://www.lesswrong.com/users/taherezm"
 
 # Typeface. Set to true once licensed Die Grotesk web fonts are in
 # assets/fonts/ (see README). Until then the site uses the fallback,
