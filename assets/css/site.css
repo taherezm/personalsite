@@ -231,7 +231,25 @@ main { padding: 20px var(--gutter) 0; min-height: calc(100vh - var(--bar) - 76px
 .cover a:hover .cover-title { text-decoration-thickness: 2px; }
 .cover-meta { display: block; font-size: 12px; padding-top: 2px; }
 
+/* Bookshelf: covers stand on a line, sized from each book's height in cm. */
+.shelf { --cm: 6px; list-style: none; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px 0; margin-bottom: 22px; }
+.book { width: min-content; font-size: 14px; line-height: 1.3; }
+.book a { display: block; text-decoration: none; }
+.book a .cover-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.book a:hover .cover-title { text-decoration-thickness: 2px; }
+.book-stand { display: flex; align-items: flex-end; height: calc(var(--tallest) * var(--cm)); padding-right: 14px; border-bottom: 1px solid #000; }
+.book-stand .shell { flex: none; height: calc(var(--h) * var(--cm)); border-bottom: 0; }
+.book-stand .shell:empty { aspect-ratio: 2 / 3; }
+.book-stand img { width: auto; height: 100%; max-width: none; object-fit: fill; }
+.book .cover-title, .book .cover-meta { padding-right: 14px; }
+
+/* On a book's own page the cover keeps its proportions. */
+.entry-side .shell:has(img) { aspect-ratio: auto; }
+.entry-side .shell:has(img) img { height: auto; }
+
 @media (min-width: 720px) {
+  .index .shelf { --cm: 8px; grid-column: 4 / -1; }
+  .book-stand, .book .cover-title, .book .cover-meta { padding-right: 20px; }
   .index .covers { grid-column: 4 / -1; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); max-width: 62em; }
   .index .covers-landscape { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
 }

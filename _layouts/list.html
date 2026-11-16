@@ -5,7 +5,8 @@ layout: default
 Listing page for a collection. Front matter:
   collection: writing | projects | books | etc
   groups:     name of a list in _config.yml (optional)
-  covers:     portrait | square | landscape — show a grid of covers
+  covers:     shelf — a bookshelf with covers at their real relative sizes;
+              portrait | square | landscape — show a grid of covers
               instead of text rows (for grouped pages, set per group
               in _config.yml)
   date_format: how dates are shown (default: year only)
@@ -40,6 +41,8 @@ Listing page for a collection. Front matter:
         {%- endif %}
       {%- endif %}
     {%- endfor %}
+  {%- elsif items.size > 0 and page.covers == "shelf" %}
+  {% include shelf.html items=items format=format %}
   {%- elsif items.size > 0 and page.covers %}
   <ul class="covers covers-{{ page.covers }}">
     {%- for item in items %}

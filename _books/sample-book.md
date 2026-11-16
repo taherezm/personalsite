@@ -3,6 +3,7 @@ title: Sample book
 author: Author Name
 date: 2026-11-16       # When read. Sets the order and the year shown.
 # status: Reading      # Optional.
+# height: 21          # Optional: the book's height in centimetres (default 21).
 # cover: /assets/images/books/file.jpg   # The cover. Until set, an empty frame is shown.
 ---
 

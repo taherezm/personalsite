@@ -2,6 +2,7 @@
 title: Sample book 1
 author: Author Name
 date: 2026-10-01
+height: 20             # Optional: the book's height in centimetres. Sets how tall it stands on the shelf.
 cover: /assets/images/samples/book-1.png
 ---
 

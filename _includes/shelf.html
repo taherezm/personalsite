@@ -1,0 +1,34 @@
+{%- comment -%}
+A bookshelf: covers stand on a shared line at their real relative sizes.
+Each book's `height` (in centimetres, default 21) sets how tall it stands;
+its width follows the proportions of the cover image. A book without a
+cover image shows as an empty frame.
+{%- endcomment -%}
+{%- assign tallest = 0 -%}
+{%- for item in include.items -%}
+  {%- assign h = item.height | default: 21 -%}
+  {%- if h > tallest %}{% assign tallest = h %}{% endif -%}
+{%- endfor -%}
+<ul class="shelf" style="--tallest: {{ tallest }}">
+  {%- for item in include.items %}
+  {%- assign body = item.content | strip -%}
+  {%- assign by = item.author | default: item.by -%}
+  {%- assign href = nil -%}
+  {%- if body != "" -%}{%- assign href = item.url | relative_url -%}
+  {%- elsif item.link -%}{%- assign href = item.link -%}{%- endif %}
+  <li class="book" style="--h: {{ item.height | default: 21 }}">
+    {% if href %}<a href="{{ href }}"{% if body == "" %} rel="noopener"{% endif %}>{% endif %}
+      <span class="book-stand"><span class="shell">
+        {%- if item.cover %}<img src="{{ item.cover | relative_url }}" alt="" loading="lazy">{% endif -%}
+      </span></span>
+      <span class="cover-title">{{ item.title }}</span>
+    {% if href %}</a>{% endif %}
+    {%- if by %}
+    <span class="cover-meta">{{ by }}</span>
+    {%- endif %}
+    {%- if item.status or include.format %}
+    <span class="cover-meta">{% if item.status %}{{ item.status }} {% endif %}{% if include.format %}<time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: include.format }}</time>{% endif %}</span>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>
