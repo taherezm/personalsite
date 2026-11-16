@@ -101,6 +101,12 @@ a:hover { text-decoration-thickness: 2px; }
   font-size: 13px; line-height: 1.3;
 }
 .site-header :focus-visible { outline-color: #fff; }
+/* A blue slab standing above the bar, off the top of the page. Browsers that
+   paint a colour of their own behind an overscrolled page still show this. */
+.site-header::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 100%;
+  height: 100vh; background: #1717EF; pointer-events: none;
+}
 .site-id { display: flex; align-items: stretch; min-width: 0; }
 .site-id > * { display: flex; align-items: center; white-space: nowrap; }
 /* Home mark: a house, outlined on inner pages and solid on the first page. */
@@ -322,6 +328,7 @@ figcaption { font-size: 12px; margin-top: 5px; }
 
 @media print {
   html { background: none; }
+  .site-header::before { display: none; }
   .site-header { position: static; }
   .menu, .skip { display: none; }
 }
