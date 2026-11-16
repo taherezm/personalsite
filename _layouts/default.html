@@ -45,11 +45,11 @@
 {{ content }}
 </main>
 <footer class="site-footer">
-  <span>© {{ site.time | date: "%Y" }} {{ site.title }}</span>
+  <span>© {{ site.time | date: "%Y" }} {{ site.title }}<time class="clock" hidden></time></span>
   {%- unless page.url == "/" %}
   {% include links.html %}
   {%- endunless %}
 </footer>
-<script src="{{ '/assets/js/menu.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
 </html>

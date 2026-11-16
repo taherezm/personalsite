@@ -43,3 +43,25 @@
     if (isOpen() && event.relatedTarget && !event.relatedTarget.closest(".menu")) setOpen(false);
   });
 })();
+
+// Footer clock: the visitor's own local time, read from their device.
+// Nothing is requested or sent; it refreshes on the minute.
+(function () {
+  var clock = document.querySelector(".clock");
+  if (!clock) return;
+
+  function show() {
+    var now = new Date();
+    var text;
+    try {
+      text = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+    } catch (error) {
+      text = now.toLocaleTimeString();
+    }
+    clock.textContent = text;
+    clock.dateTime = now.toISOString();
+    clock.hidden = false;
+    setTimeout(show, 60000 - (now.getSeconds() * 1000 + now.getMilliseconds()) + 50);
+  }
+  show();
+})();
