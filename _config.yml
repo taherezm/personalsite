@@ -12,9 +12,14 @@ description: ""            # One factual sentence, used by search engines and li
 url: "https://taherezm.github.io"
 baseurl: "/personalsite"
 
-# Profile links. Leave a value empty and the label appears as plain
+# Profile links. Leave a url empty and the label appears as plain
 # text; fill it in and it becomes a link.
-email: ""                  # e.g. name@example.com
+# Email. `email_text` is shown as plain words, not a clickable link, so
+# programs that harvest addresses for spam are less likely to pick it up.
+# To change inbox, edit this one line. (Setting `email` to a real address
+# instead makes a clickable "Email" link, which is easier to harvest.)
+email_text: "taherezm04 at gmail dot com"
+email: ""
 links:
   - label: GitHub
     url: "https://github.com/taherezm"
