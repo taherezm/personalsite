@@ -16,9 +16,9 @@
 <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="preload" href="{{ '/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 {%- if site.die_grotesk %}
-<link rel="stylesheet" href="{{ '/assets/css/die-grotesk.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/die-grotesk.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 {%- endif %}
-<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <script>document.documentElement.className = "js";</script>
 </head>
 <body>
@@ -50,6 +50,6 @@
   {% include links.html %}
   {%- endunless %}
 </footer>
-<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>

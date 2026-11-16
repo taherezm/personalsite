@@ -147,7 +147,7 @@ main { padding: 20px var(--gutter) 0; min-height: calc(100vh - var(--bar) - 76px
   font-size: 12px;
 }
 
-.clock { margin-left: 16px; white-space: nowrap; }
+.clock { margin-left: 24px; white-space: nowrap; }
 .links, .sections { list-style: none; }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 0 16px; }
 
