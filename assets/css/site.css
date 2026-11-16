@@ -60,9 +60,12 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: calc(var(--bar) + 12px);
+  background: #1717EF;   /* shows when the page is pulled past its top edge */
 }
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: #fff;
   color: #000;
   font: 400 15px/1.45 var(--font);
@@ -317,6 +320,7 @@ figcaption { font-size: 12px; margin-top: 5px; }
 }
 
 @media print {
+  html { background: none; }
   .site-header { position: static; }
   .menu, .skip { display: none; }
 }
