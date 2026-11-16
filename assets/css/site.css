@@ -60,7 +60,6 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: calc(var(--bar) + 12px);
-  background: #fff;
 }
 body {
   margin: 0;
@@ -72,7 +71,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-wrap: break-word;
 }
-.page { min-height: 100vh; min-height: 100dvh; background: #fff; }
 ::selection { background: #000; color: #fff; }
 
 h1, h2, h3, h4, p, ul, ol, dl, figure, blockquote, pre { margin: 0; }
@@ -93,18 +91,16 @@ a:hover { text-decoration-thickness: 2px; }
   display: flex; justify-content: space-between; align-items: stretch;
   min-height: var(--bar);
   padding: 0 var(--gutter);
-  background: #1717EF;
-  border-bottom: 1px solid #1717EF;
-  color: #fff;
+  background: #fff;
+  border-bottom: 1px solid #000;
   font-size: 13px; line-height: 1.3;
 }
-.site-header :focus-visible { outline-color: #fff; }
 .site-id { display: flex; align-items: stretch; min-width: 0; }
 .site-id > * { display: flex; align-items: center; white-space: nowrap; }
 /* Home mark: a house, outlined on inner pages and solid on the first page. */
 .home-mark { margin-left: -12px; padding: 0 12px; }
-.home-mark svg { width: 14px; height: 14px; fill: none; stroke: #fff; stroke-width: 1; }
-.home-mark:hover svg, .home-mark[aria-current] svg { fill: #fff; }
+.home-mark svg { width: 14px; height: 14px; fill: none; stroke: #000; stroke-width: 1; }
+.home-mark:hover svg, .home-mark[aria-current] svg { fill: #000; }
 .home-mark:focus-visible { outline-offset: -8px; }
 .site-section { text-decoration: none; }
 a.site-section:hover { text-decoration: underline; text-decoration-thickness: 1px; }
@@ -125,9 +121,8 @@ a.site-section:hover { text-decoration: underline; text-decoration-thickness: 1p
   display: none;
   position: absolute; top: 100%; right: -10px;
   min-width: 152px;
-  background: #fff; border: 1px solid #000; color: #000;
+  background: #fff; border: 1px solid #000;
 }
-.js .menu-list a:focus-visible { outline-color: #000; }
 .js .menu-list.is-open { display: block; }
 .menu-list a { display: block; padding: 7px 10px; text-decoration: none; white-space: nowrap; }
 .menu-list a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
