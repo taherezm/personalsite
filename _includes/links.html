@@ -5,6 +5,6 @@
   {%- if site.email and site.email != "" %}
   <li><a href="mailto:{{ site.email }}">Email</a></li>
   {%- elsif site.email_text and site.email_text != "" %}
-  <li>{{ site.email_text }}</li>
+  <li class="email">{{ site.email_text }}</li>
   {%- endif %}
 </ul>

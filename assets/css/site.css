@@ -149,6 +149,9 @@ main { padding: 20px var(--gutter) 0; min-height: calc(100vh - var(--bar) - 76px
 
 .clock { margin-left: 24px; white-space: nowrap; font: inherit; font-size: 11px; }
 .links, .sections { list-style: none; }
+.home-index .email { font-size: 12px; }
+.site-footer .email { font-size: 11px; }
+.site-footer .links { align-items: baseline; }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 0 16px; }
 
 /* ── Home ─────────────────────────────────────────────── */
