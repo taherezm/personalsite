@@ -73,6 +73,9 @@ etc_kinds:
   - key: media
     label: Media
     covers: landscape
+  - key: reference
+    label: References
+    sort: topic          # Listed by topic (alphabetically), not by date.
   - key: other
     label: Other
 

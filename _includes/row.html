@@ -1,12 +1,14 @@
 {%- comment -%}
 One line in a listing. An entry with body text links to its own page;
 an entry with no body but a `link` goes straight to that address;
-an entry with neither is plain text.
+an entry with neither is plain text. A `note` is shown beside the title
+(in place of the author); a `topic` is shown at the right.
 {%- endcomment -%}
 {%- assign item = include.item -%}
 {%- assign body = item.content | strip -%}
 {%- assign by = item.author | default: item.by -%}
-<li class="row{% unless by %} row-plain{% endunless %}">
+{%- assign second = item.note | default: by -%}
+<li class="row{% unless second %} row-plain{% endunless %}{% if item.note %} row-noted{% endif %}">
   <span class="row-title">
     {%- if body != "" -%}
     <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
@@ -16,8 +18,10 @@ an entry with neither is plain text.
     {{ item.title }}
     {%- endif -%}
   </span>
-  {%- if by %}
+  {%- if item.note %}
+  <span class="row-by row-note">{{ item.note }}</span>
+  {%- elsif by %}
   <span class="row-by">{{ by }}</span>
   {%- endif %}
-  <span class="row-meta">{% if item.status %}{{ item.status }} {% endif %}{% if include.format %}<time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: include.format }}</time>{% endif %}</span>
+  <span class="row-meta">{% if item.topic %}{{ item.topic }} {% endif %}{% if item.status %}{{ item.status }} {% endif %}{% if include.format %}<time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: include.format }}</time>{% endif %}</span>
 </li>

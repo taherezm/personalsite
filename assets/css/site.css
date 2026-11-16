@@ -196,6 +196,7 @@ main { padding: 20px var(--gutter) 0; min-height: calc(100vh - var(--bar) - 76px
 .row > * { padding: 4px 0; }
 .row-title a { padding: 4px 0; }
 .row-by { grid-column: 1; grid-row: 2; font-size: 12px; padding-top: 0; }
+.row-note { grid-column: 1 / -1; font-size: 14px; line-height: 1.35; padding-bottom: 6px; }
 .row-meta { grid-column: 2; grid-row: 1; font-size: 12px; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
 
 @media (min-width: 720px) {
@@ -205,6 +206,8 @@ main { padding: 20px var(--gutter) 0; min-height: calc(100vh - var(--bar) - 76px
   .row { grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(7em, auto); }
   .row-plain .row-title { grid-column: 1 / span 2; }
   .row-by { grid-column: 2; grid-row: 1; font-size: inherit; padding-top: 4px; }
+  .row-noted { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) minmax(6em, auto); }
+  .row-note { grid-column: 2; font-size: 14px; padding-bottom: 4px; }
   .row-meta { grid-column: 3; }
 }
 
